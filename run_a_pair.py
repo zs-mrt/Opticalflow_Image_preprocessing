@@ -14,7 +14,7 @@ from math import ceil
 
 from utils.preprocessing import ROI_for_gas, ROIinImg_for_gas, draw_rect
 from utils.imageshow import flownetShow, opencvShow, cvbShow
-from utils.OpticalFlowAlgo import Brox, farneback, flow_to_color
+from utils.OpticalFlowAlgo import Brox, farneback #flow_to_color
 
 
 def ReadImg_Ori(path1, path2, IsGas):
@@ -154,22 +154,24 @@ if __name__ == '__main__':
     #result = ReadImg_Ori(path1_MPI,path2_MPI, 0) #worked
     #result = ReadImg_Ori(path1_gas, path2_gas) #not worked, because the gas image has only one channel.
     #result = ReadImg_Ori(path1_gas, path2_gas, 1) #not worked
-    #result = ReadImg_JR(path1_gas, path2_gas, path3_gas) # worked, but the parameter are not suitable.
+    result = ReadImg_JR(path1_gas, path2_gas, path3_gas) # worked, but the parameter are not suitable.
     #result = ReadImg_JR(path1_wkgas, path2_wkgas) # worked, but the parameter are not suitable.
 
     #result = farneback(path1_MPI, path2_MPI) #worked
     #result = farneback(path1_wkgas, path2_wkgas) # worked, but the parameter are not suitable.
     #result = farneback(path1_gas, path2_gas)
-    img = draw_rect(path2_gas)
+
+    #img = draw_rect(path2_gas)
     #roi = ROIinImg_for_gas(path1_gas)
-    plt.imshow(img, interpolation='nearest')
-    plt.show()
+
+    #plt.imshow(img, interpolation='nearest')
+    #plt.show()
 
     #result = Brox(path1_gas, path2_gas)
     #opencvShow(result)
 
     #rgb = flow_to_color(result, hsv)
-"""
+
     # save flow, I reference the code in scripts/run-flownet.py in flownet2-caffe project
     def writeFlow(name, flow):
         f = open(name, 'wb')
@@ -185,11 +187,11 @@ if __name__ == '__main__':
     writeFlow("/home/shen/Data/testFN2/test1.flo", data)
     flow = cvb.optflow.io.read_flow('/home/shen/Data/testFN2/test1.flo')
 
-    #opencvShow(flow)
+    opencvShow(flow)
     #cvbShow(flow)
     #flownetShow(flow)
     #JRshow(flow)
 
 
-"""
+
     
